@@ -1,0 +1,97 @@
+services:
+  Evrinoma\MailBundle\Controller\MailApiController:
+    alias: evrinoma.mail.api.controller
+    public: true
+
+  evrinoma.mail.api.controller:
+    class: Evrinoma\MailBundle\Controller\MailApiController
+    arguments:
+      - '@jms_serializer'
+      - '@request_stack'
+      - '@evrinoma.dto.factory'
+      - '@evrinoma.mail.facade'
+    autowire: true
+
+  evrinoma.mail.facade:
+    class: Evrinoma\MailBundle\Facade\Mail\Facade
+    arguments:
+      - '@evrinoma.mail.command.manager'
+      - '@evrinoma.mail.query.manager'
+      - '@evrinoma.mail.adaptor'
+    autowire: true
+
+  Evrinoma\MailBundle\Facade\Mail\FacadeInterface:
+    alias: evrinoma.mail.facade
+
+  evrinoma.mail.factory:
+    class: Evrinoma\MailBundle\Factory\Mail\Factory
+    public: true
+    arguments:
+
+  evrinoma.mail.orm.repository:
+    class: Evrinoma\MailBundle\Repository\Orm\Mail\MailRepository
+    public: true
+    arguments:
+
+  evrinoma.mail.command.manager:
+    class: Evrinoma\MailBundle\Manager\CommandManager
+    arguments:
+      - '@evrinoma.mail.validator'
+      - '@evrinoma.mail.repository'
+      - '@evrinoma.mail.factory'
+      - '@evrinoma.mail.command.mediator'
+
+  Evrinoma\MailBundle\Manager\CommandManagerInterface:
+    alias: evrinoma.mail.command.manager
+
+  evrinoma.mail.query.manager:
+    class: Evrinoma\MailBundle\Manager\QueryManager
+    arguments:
+      - '@evrinoma.mail.repository'
+
+  Evrinoma\MailBundle\Manager\QueryManagerInterface:
+    alias: evrinoma.mail.query.manager
+    
+  evrinoma.mail.validator:
+    class: Evrinoma\MailBundle\Validator\MailValidator
+    public: true
+    arguments:
+
+  Evrinoma\MailBundle\Validator\MailValidator:
+    alias: evrinoma.mail.validator
+
+  evrinoma.mail.query.orm.mediator:
+    class: Evrinoma\MailBundle\Mediator\Orm\QueryMediator
+    public: true
+    arguments:
+
+  Evrinoma\MailBundle\Mediator\Orm\QueryMediator:
+    alias: evrinoma.mail.query.orm.mediator
+
+  evrinoma.mail.command.mediator:
+    class: Evrinoma\MailBundle\Mediator\CommandMediator
+    public: true
+    arguments:
+
+  Evrinoma\MailBundle\Mediator\CommandMediator:
+    alias: evrinoma.mail.command.mediator
+
+  Evrinoma\MailBundle\Mediator\CommandMediatorInterface:
+    alias: evrinoma.mail.command.mediator
+
+  evrinoma.mail.pre.validator:
+    class: Evrinoma\MailBundle\PreValidator\DtoPreValidator
+    public: true
+    arguments:
+
+  Evrinoma\MailBundle\PreValidator\DtoPreValidator:
+    alias: evrinoma.mail.pre.validator
+
+  Evrinoma\MailBundle\PreValidator\DtoPreValidatorInterface:
+    alias: evrinoma.mail.pre.validator
+
+  evrinoma.mail.mail.form.rest.group:
+    class: Evrinoma\MailBundle\Form\Rest\Mail\MailChoiceType
+    arguments:
+      - '@evrinoma.mail.query.manager'
+    tags: { - name: form.type }

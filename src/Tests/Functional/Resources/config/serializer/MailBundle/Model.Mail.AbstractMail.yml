@@ -1,0 +1,17 @@
+Evrinoma\MailBundle\Model\Mail\AbstractMail:
+  exclusion_policy: ALL
+  properties:
+    id:
+      groups: [ API_GET_MAIL, API_POST_MAIL, API_PUT_MAIL, ]
+      expose: true
+    createdAt:
+      type: DateTimeImmutable<'Y-m-d H:i'>
+      groups: [ API_GET_MAIL, API_POST_MAIL, API_PUT_MAIL, ]
+      expose: true
+    updatedAt:
+      type: DateTimeImmutable<'Y-m-d H:i'>
+      groups: [ API_GET_MAIL, API_POST_MAIL, API_PUT_MAIL, ]
+      expose: true
+    email:
+      groups: [ API_GET_MAIL, API_POST_MAIL, API_PUT_MAIL, ]
+      expose: true

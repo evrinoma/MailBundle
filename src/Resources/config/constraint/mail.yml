@@ -1,0 +1,4 @@
+services:
+  evrinoma.mail.constraint.property.email:
+    class: Evrinoma\MailBundle\Constraint\Property\Email
+

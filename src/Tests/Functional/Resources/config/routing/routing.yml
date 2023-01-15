@@ -1,0 +1,2 @@
+mail:
+    resource: "@EvrinomaMailBundle/Resources/config/routes.yml"

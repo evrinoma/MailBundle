@@ -1,0 +1,5 @@
+services:
+  evrinoma.mail.fixtures.mail:
+    class: Evrinoma\MailBundle\Fixtures\MailFixtures
+    tags:
+      - { name: doctrine.fixture.orm }

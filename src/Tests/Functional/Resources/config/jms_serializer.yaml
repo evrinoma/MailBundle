@@ -1,0 +1,6 @@
+jms_serializer:
+  metadata:
+    directories:
+      MailBundle:
+        namespace_prefix: "Evrinoma\\MailBundle"
+        path: '%kernel.root_dir%/Resources/config/serializer/MailBundle'

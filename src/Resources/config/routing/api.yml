@@ -1,0 +1,3 @@
+mail_api:
+  resource: "@EvrinomaMailBundle/Controller/MailApiController.php"
+  type: annotation

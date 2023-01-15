@@ -1,0 +1,3 @@
+mailapi:
+  resource: "@EvrinomaMailBundle/Resources/config/routing/api.yml"
+  prefix: evrinoma

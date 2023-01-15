@@ -1,0 +1,9 @@
+services:
+  evrinoma.mail.test.functional.action.mail:
+    class: Evrinoma\MailBundle\Tests\Functional\Action\BaseMail
+    public: true
+    arguments:
+
+  Evrinoma\MailBundle\Tests\Functional\Action\BaseMail:
+    alias: evrinoma.mail.test.functional.action.mail
+    public: true
