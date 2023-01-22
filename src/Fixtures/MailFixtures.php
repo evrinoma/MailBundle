@@ -71,12 +71,15 @@ class MailFixtures extends AbstractFixture implements FixtureGroupInterface, Ord
         $short = self::getReferenceName();
         $i = 0;
 
-        foreach (static::$data as $record) {
+        foreach ($this->getData()  as $record) {
             /** @var BaseMail $entity */
-            $entity = new static::$class();
+            $entity = $this->getEntity();
             $entity
                 ->setEmail($record[MailApiDtoInterface::EMAIL])
                 ->setCreatedAt(new \DateTimeImmutable($record['created_at']));
+
+            $this->expandEntity($entity);
+
             $this->addReference($short.$i, $entity);
             $manager->persist($entity);
             ++$i;
