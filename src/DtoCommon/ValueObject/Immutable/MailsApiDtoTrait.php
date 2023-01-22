@@ -21,6 +21,8 @@ trait MailsApiDtoTrait
 {
     protected array $mailsApiDto = [];
 
+    protected static string $classMailsApiDto = MailApiDto::class;
+
     public function hasMailsApiDto(): bool
     {
         return 0 !== \count($this->mailsApiDto);
@@ -38,7 +40,7 @@ trait MailsApiDtoTrait
             if ($entities) {
                 foreach ($entities as $entity) {
                     $newRequest = $this->getCloneRequest();
-                    $entity[DtoInterface::DTO_CLASS] = MailApiDto::class;
+                    $entity[DtoInterface::DTO_CLASS] = static::$classMailsApiDto;
                     $newRequest->request->add($entity);
 
                     yield $newRequest;

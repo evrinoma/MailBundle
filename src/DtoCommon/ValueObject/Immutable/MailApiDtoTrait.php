@@ -22,13 +22,15 @@ trait MailApiDtoTrait
 {
     protected ?BaseMailApiDtoInterface $mailApiDto = null;
 
+    protected static string $classMailApiDto = MailApiDto::class;
+
     public function genRequestMailApiDto(?Request $request): ?\Generator
     {
         if ($request) {
             $mail = $request->get(MailApiDtoInterface::MAIL);
             if ($mail) {
                 $newRequest = $this->getCloneRequest();
-                $mail[DtoInterface::DTO_CLASS] = MailApiDto::class;
+                $mail[DtoInterface::DTO_CLASS] = static::$classMailApiDto;
                 $newRequest->request->add($mail);
 
                 yield $newRequest;
