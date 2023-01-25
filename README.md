@@ -25,7 +25,7 @@
                  недостающие значения можно разрешить только на уровне Mediator
         entity: App\Mail\Entity\Mail сущность
         constraints: Вкл/выкл проверки полей сущности по умолчанию 
-        dto_class: App\Mail\Dto\MailDto класс dto с которым работает сущность
+        dto: App\Mail\Dto\MailDto класс dto с которым работает сущность
         decorates:
           command - декоратор mediator команд адреса 
           query - декоратор mediator запросов адреса
