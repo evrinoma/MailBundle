@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Evrinoma\MailBundle\Form\Rest\Mail;
 
 use Doctrine\DBAL\Exception\TableNotFoundException;
-use Evrinoma\MailBundle\Dto\MailApiDto;
 use Evrinoma\MailBundle\Dto\MailApiDtoInterface;
 use Evrinoma\MailBundle\Exception\MailNotFoundException;
 use Evrinoma\MailBundle\Manager\QueryManagerInterface;
@@ -25,11 +24,14 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class MailChoiceType extends AbstractType
 {
+    protected static string $dtoClass;
+
     private QueryManagerInterface $queryManager;
 
-    public function __construct(QueryManagerInterface $queryManager)
+    public function __construct(QueryManagerInterface $queryManager, string $dtoClass)
     {
         $this->queryManager = $queryManager;
+        static::$dtoClass = $dtoClass;
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -38,7 +40,7 @@ class MailChoiceType extends AbstractType
             $value = [];
             try {
                 if ($options->offsetExists('data')) {
-                    $criteria = $this->queryManager->criteria(new MailApiDto());
+                    $criteria = $this->queryManager->criteria(new static::$dtoClass());
                     switch ($options->offsetGet('data')) {
                         case MailApiDtoInterface::EMAIL:
                             foreach ($criteria as $entity) {

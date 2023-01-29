@@ -90,7 +90,7 @@ services:
   Evrinoma\MailBundle\PreValidator\DtoPreValidatorInterface:
     alias: evrinoma.mail.pre.validator
 
-  evrinoma.mail.mail.form.rest.group:
+  evrinoma.mail.mail.form.rest.mail:
     class: Evrinoma\MailBundle\Form\Rest\Mail\MailChoiceType
     arguments:
       - '@evrinoma.mail.query.manager'
