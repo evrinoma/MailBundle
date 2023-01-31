@@ -54,22 +54,35 @@ class BaseMail extends AbstractServiceTest implements BaseMailTestInterface
 
     public function actionCriteriaNotFound(): void
     {
-        $find = $this->criteria([MailApiDtoInterface::DTO_CLASS => static::getDtoClass(), MailApiDtoInterface::ID => Id::wrong()]);
+        $find = $this->criteria([
+            MailApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            MailApiDtoInterface::ID => Id::wrong(),
+        ]);
         $this->testResponseStatusNotFound();
         Assert::assertArrayHasKey(PayloadModel::PAYLOAD, $find);
 
-        $find = $this->criteria([MailApiDtoInterface::DTO_CLASS => static::getDtoClass(), MailApiDtoInterface::ID => Id::value(), MailApiDtoInterface::EMAIL => Email::wrong()]);
+        $find = $this->criteria([
+            MailApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            MailApiDtoInterface::ID => Id::value(),
+            MailApiDtoInterface::EMAIL => Email::wrong(),
+        ]);
         $this->testResponseStatusNotFound();
         Assert::assertArrayHasKey(PayloadModel::PAYLOAD, $find);
     }
 
     public function actionCriteria(): void
     {
-        $find = $this->criteria([MailApiDtoInterface::DTO_CLASS => static::getDtoClass(), MailApiDtoInterface::ID => Id::value()]);
+        $find = $this->criteria([
+            MailApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            MailApiDtoInterface::ID => Id::value(),
+        ]);
         $this->testResponseStatusOK();
         Assert::assertCount(1, $find[PayloadModel::PAYLOAD]);
 
-        $find = $this->criteria([MailApiDtoInterface::DTO_CLASS => static::getDtoClass(),  MailApiDtoInterface::EMAIL => Email::DOMAIN()]);
+        $find = $this->criteria([
+            MailApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            MailApiDtoInterface::EMAIL => Email::DOMAIN(),
+        ]);
         $this->testResponseStatusOK();
         Assert::assertCount(2, $find[PayloadModel::PAYLOAD]);
     }
@@ -89,7 +102,10 @@ class BaseMail extends AbstractServiceTest implements BaseMailTestInterface
     {
         $find = $this->assertGet(Id::value());
 
-        $updated = $this->put(static::getDefault([MailApiDtoInterface::ID => Id::value(), MailApiDtoInterface::EMAIL => Email::value()]));
+        $updated = $this->put(static::getDefault([
+            MailApiDtoInterface::ID => Id::value(),
+            MailApiDtoInterface::EMAIL => Email::value(),
+        ]));
         $this->testResponseStatusOK();
 
         Assert::assertEquals($find[PayloadModel::PAYLOAD][0][MailApiDtoInterface::ID], $updated[PayloadModel::PAYLOAD][0][MailApiDtoInterface::ID]);
@@ -117,7 +133,7 @@ class BaseMail extends AbstractServiceTest implements BaseMailTestInterface
 
     public function actionDeleteUnprocessable(): void
     {
-        $response = $this->delete(Id::empty());
+        $response = $this->delete(Id::blank());
         Assert::assertArrayHasKey(PayloadModel::PAYLOAD, $response);
         $this->testResponseStatusUnprocessable();
     }
@@ -137,7 +153,10 @@ class BaseMail extends AbstractServiceTest implements BaseMailTestInterface
         $this->testResponseStatusCreated();
         $this->checkResult($created);
 
-        $query = static::getDefault([MailApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][MailApiDtoInterface::ID], MailApiDtoInterface::EMAIL => Email::empty()]);
+        $query = static::getDefault([
+            MailApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][MailApiDtoInterface::ID],
+            MailApiDtoInterface::EMAIL => Email::blank(),
+        ]);
 
         $this->put($query);
         $this->testResponseStatusUnprocessable();
