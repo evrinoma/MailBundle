@@ -92,6 +92,7 @@ final class MailApiController extends AbstractWrappedApiController implements Ap
         try {
             $this->facade->post($mailApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -136,6 +137,7 @@ final class MailApiController extends AbstractWrappedApiController implements Ap
         try {
             $this->facade->put($mailApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -185,6 +187,7 @@ final class MailApiController extends AbstractWrappedApiController implements Ap
         try {
             $this->facade->delete($mailApiDto, '', $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -239,6 +242,7 @@ final class MailApiController extends AbstractWrappedApiController implements Ap
         try {
             $this->facade->criteria($mailApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -287,6 +291,7 @@ final class MailApiController extends AbstractWrappedApiController implements Ap
         try {
             $this->facade->get($mailApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
