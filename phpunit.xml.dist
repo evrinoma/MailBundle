@@ -12,7 +12,7 @@
         <ini name="memory_limit" value="-1"/>
     </php>
     <testsuites>
-        <testsuite name="MailBundle Test Suite">
+        <testsuite name="Mail Test Suite">
             <directory>./Tests</directory>
         </testsuite>
     </testsuites>
