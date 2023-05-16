@@ -23,35 +23,35 @@ use Evrinoma\TestUtilsBundle\Fixtures\AbstractFixture;
 class MailFixtures extends AbstractFixture implements FixtureGroupInterface, OrderedFixtureInterface
 {
     protected static array $data = [
-        [
+        0 => [
             MailApiDtoInterface::EMAIL => 'QWERT3601@test.ru',
             'created_at' => '2008-10-23 10:21:50',
         ],
-        [
+        1 => [
             MailApiDtoInterface::EMAIL => 'qwert3602@test.com',
             'created_at' => '2015-10-23 10:21:50',
         ],
-        [
+        2 => [
             MailApiDtoInterface::EMAIL => '3603@mail.ru',
             'created_at' => '2020-10-23 10:21:50',
         ],
-        [
+        3 => [
             MailApiDtoInterface::EMAIL => '3604@mail.com',
             'created_at' => '2020-10-23 10:21:50',
         ],
-        [
+        4 => [
             MailApiDtoInterface::EMAIL => '3605@google.ru',
             'created_at' => '2015-10-23 10:21:50',
-            ],
-        [
+        ],
+        5 => [
             MailApiDtoInterface::EMAIL => '3606@google.com',
             'created_at' => '2010-10-23 10:21:50',
         ],
-        [
+        6 => [
             MailApiDtoInterface::EMAIL => '3607@google.ru',
             'created_at' => '2010-10-23 10:21:50',
-            ],
-        [
+        ],
+        7 => [
             MailApiDtoInterface::EMAIL => 'AqwW3608@google.com',
             'created_at' => '2011-10-23 10:21:50',
         ],
