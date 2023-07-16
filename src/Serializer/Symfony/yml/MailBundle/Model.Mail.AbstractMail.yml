@@ -1,0 +1,26 @@
+Evrinoma\MailBundle\Model\Mail\AbstractMail:
+  attributes:
+    id:
+      groups: [
+        API_GET_MAIL, API_POST_MAIL, API_PUT_MAIL,
+      ]
+    createdAt:
+      contexts:
+        type:
+          context:
+            datetime_format: 'Y-m-d H:i'
+      groups: [
+        API_GET_MAIL, API_POST_MAIL, API_PUT_MAIL,
+      ]
+    updatedAt:
+      contexts:
+        type:
+          context:
+            datetime_format: 'Y-m-d H:i'
+      groups: [
+        API_GET_MAIL, API_POST_MAIL, API_PUT_MAIL,
+      ]
+    email:
+      groups: [
+        API_GET_MAIL, API_POST_MAIL, API_PUT_MAIL,
+      ]
