@@ -13,23 +13,9 @@ declare(strict_types=1);
 
 namespace Evrinoma\MailBundle\Serializer\Symfony;
 
-use Evrinoma\UtilsBundle\Serialize\ConfigurationInterface;
-use Symfony\Component\Serializer\Mapping\Loader\LoaderInterface;
-use Symfony\Component\Serializer\Mapping\Loader\YamlFileLoader;
+use Evrinoma\UtilsBundle\Serialize\AbstractConfiguration;
 
-class ConfigurationMail implements ConfigurationInterface
+class ConfigurationMail extends AbstractConfiguration
 {
-    private string $fileName = '/src/Serializer/Symfony/yml/MailBundle/Model.Mail.AbstractMail.yml';
-
-    private string $projectDir = '';
-
-    public function __construct(string $projectDir)
-    {
-        $this->projectDir = $projectDir;
-    }
-
-    public function getFile(): LoaderInterface
-    {
-        return new YamlFileLoader($this->projectDir.$this->fileName);
-    }
+    protected string $fileName = '/src/Serializer/Symfony/yml/MailBundle/Model.Mail.AbstractMail.yml';
 }
