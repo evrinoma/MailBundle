@@ -1,0 +1,6 @@
+services:
+  evrinoma.mail.mail.serializer.mail:
+    class: Evrinoma\MailBundle\Serializer\Symfony\ConfigurationMail
+    public: true
+    tags:
+      - { name: 'evrinoma.serializer' }
