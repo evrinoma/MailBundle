@@ -96,10 +96,3 @@ services:
       - '@evrinoma.mail.query.manager'
     tags: { - name: form.type }
 
-  evrinoma.mail.mail.serializer.mail:
-    class: Evrinoma\MailBundle\Serializer\Symfony\ConfigurationMail
-    public: true
-    arguments:
-      - '%kernel.project_dir%'
-    tags:
-      - { name: 'evrinoma.serializer' }
