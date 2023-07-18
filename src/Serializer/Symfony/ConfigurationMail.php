@@ -17,5 +17,5 @@ use Evrinoma\UtilsBundle\Serialize\AbstractConfiguration;
 
 class ConfigurationMail extends AbstractConfiguration
 {
-    protected string $fileName = '/src/Serializer/Symfony/yml/MailBundle/Model.Mail.AbstractMail.yml';
+    protected string $fileName = '/src/Resources/serializer/Symfony/serializer/MailBundle/Model.Mail.AbstractMail.yml';
 }

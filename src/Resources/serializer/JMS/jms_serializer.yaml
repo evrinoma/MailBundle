@@ -3,4 +3,4 @@ jms_serializer:
     directories:
       MailBundle:
         namespace_prefix: "Evrinoma\\MailBundle"
-        path: '%kernel.root_dir%/src/Serializer/JMS/serializer/MailBundle'
+        path: '%kernel.root_dir%/src/Resources/serializer/JMS/serializer/MailBundle'
