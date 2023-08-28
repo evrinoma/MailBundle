@@ -39,11 +39,7 @@ trait MailsApiDtoTrait
             $entities = $request->get(MailsApiDtoInterface::MAILS);
             if ($entities) {
                 foreach ($entities as $entity) {
-                    $newRequest = $this->getCloneRequest();
-                    $entity[DtoInterface::DTO_CLASS] = static::$classMailsApiDto;
-                    $newRequest->request->add($entity);
-
-                    yield $newRequest;
+                    yield $this->toRequest($entity, static::$classMailsApiDto);
                 }
             }
         }

@@ -29,11 +29,7 @@ trait MailApiDtoTrait
         if ($request) {
             $mail = $request->get(MailApiDtoInterface::MAIL);
             if ($mail) {
-                $newRequest = $this->getCloneRequest();
-                $mail[DtoInterface::DTO_CLASS] = static::$classMailApiDto;
-                $newRequest->request->add($mail);
-
-                yield $newRequest;
+                yield $this->toRequest($mail, static::$classMailApiDto);
             }
         }
     }
