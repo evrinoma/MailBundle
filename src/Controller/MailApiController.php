@@ -74,7 +74,7 @@ final class MailApiController extends AbstractWrappedApiController implements Ap
      *         )
      *     )
      * )
-     * @OA\Response(response=200, description="Create mail")
+     * @OA\Response(response=201, description="Create mail")
      *
      * @return JsonResponse
      */
