@@ -96,7 +96,7 @@ final class MailApiController extends AbstractWrappedApiController implements Ap
             $error = $this->setRestStatus($e);
         }
 
-        return $this->setSerializeGroup($group)->JsonResponse('Create mail', $json, $error);
+        return $this->setSerializeGroup($group)->jsonResponse('Create mail', $json, $error);
     }
 
     /**
@@ -141,7 +141,7 @@ final class MailApiController extends AbstractWrappedApiController implements Ap
             $error = $this->setRestStatus($e);
         }
 
-        return $this->setSerializeGroup($group)->JsonResponse('Save mail', $json, $error);
+        return $this->setSerializeGroup($group)->jsonResponse('Save mail', $json, $error);
     }
 
     /**
@@ -183,15 +183,16 @@ final class MailApiController extends AbstractWrappedApiController implements Ap
 
         $json = [];
         $error = [];
+        $group = GroupInterface::API_DELETE_MAIL;
 
         try {
-            $this->facade->delete($mailApiDto, '', $json);
+            $this->facade->delete($mailApiDto, $group, $json);
         } catch (\Exception $e) {
             $json = [];
             $error = $this->setRestStatus($e);
         }
 
-        return $this->JsonResponse('Delete mail', $json, $error);
+        return $this->setSerializeGroup($group)->jsonResponse('Delete mail', $json, $error);
     }
 
     /**
@@ -246,7 +247,7 @@ final class MailApiController extends AbstractWrappedApiController implements Ap
             $error = $this->setRestStatus($e);
         }
 
-        return $this->setSerializeGroup($group)->JsonResponse('Get mail', $json, $error);
+        return $this->setSerializeGroup($group)->jsonResponse('Get mail', $json, $error);
     }
 
     /**
@@ -295,7 +296,7 @@ final class MailApiController extends AbstractWrappedApiController implements Ap
             $error = $this->setRestStatus($e);
         }
 
-        return $this->setSerializeGroup($group)->JsonResponse('Get mail', $json, $error);
+        return $this->setSerializeGroup($group)->jsonResponse('Get mail', $json, $error);
     }
 
     /**

@@ -58,7 +58,8 @@ Actions в контроллере разбиты на две группы
 
     1. API_GET_MAIL, API_CRITERIA_MAIL - получение адреса
     2. API_POST_MAIL - создание адреса
-    3. API_PUT_MAIL -  редактирование адреса
+    3. API_PUT_MAIL - редактирование адреса
+    4. API_DELETE_MAIL - удаление адреса
 
 # Статусы:
 

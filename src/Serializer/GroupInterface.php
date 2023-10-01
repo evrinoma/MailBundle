@@ -17,6 +17,7 @@ interface GroupInterface
 {
     public const API_POST_MAIL = 'API_POST_MAIL';
     public const API_PUT_MAIL = 'API_PUT_MAIL';
+    public const API_DELETE_MAIL = 'API_DELETE_MAIL';
     public const API_GET_MAIL = 'API_GET_MAIL';
     public const API_CRITERIA_MAIL = self::API_GET_MAIL;
     public const APP_GET_BASIC_MAIL = 'APP_GET_BASIC_MAIL';
