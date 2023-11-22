@@ -40,7 +40,7 @@ class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInt
         $this->checkId($dto);
     }
 
-    private function checkMail(DtoInterface $dto): self
+    protected function checkMail(DtoInterface $dto): self
     {
         /** @var MailApiDtoInterface $dto */
         if (!$dto->hasEmail()) {
@@ -50,7 +50,7 @@ class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInt
         return $this;
     }
 
-    private function checkId(DtoInterface $dto): self
+    protected function checkId(DtoInterface $dto): self
     {
         /** @var MailApiDtoInterface $dto */
         if (!$dto->hasId()) {
